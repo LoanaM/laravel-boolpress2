@@ -12,3 +12,9 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+
+//ctg route
+Route::get('/admin/categorie', 'CategoryController@index')->name('index');
+
+Route::get('/admin/nuova-categoria', 'CategoryController@create')->name('create');
+Route::post('/admin/nuova-categoria', 'CategoryController@save')->name('save');
