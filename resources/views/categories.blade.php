@@ -7,6 +7,21 @@
       <a class="btn btn-primary" href="{{route('create')}}">Aggiungi categoria</a>
     </div>
   </div>
-  Tab con categories
+
+  <table class="table">
+    <thead>
+      <tr>Nome</tr>
+      <tr>Slug</tr>
+    </thead>
+    <tbody>
+      @foreach ($categories as $category)
+        <tr>
+          <td>{{$category->name}}</td>
+          <td>{{$category->slug}}</td>
+        </tr>
+      @endforeach
+    </tbody>
+
+  </table>
 
 @endsection
