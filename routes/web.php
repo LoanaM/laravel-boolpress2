@@ -18,3 +18,6 @@ Route::get('/admin/categorie', 'CategoryController@index')->name('index');
 
 Route::get('/admin/nuova-categoria', 'CategoryController@create')->name('create');
 Route::post('/admin/nuova-categoria', 'CategoryController@save')->name('save');
+
+//post route
+Route::post('/admin/posts', 'PostController@index')->name('postindex');
