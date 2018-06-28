@@ -16,6 +16,13 @@ class PostController extends Controller
 
     public function create()
     {
-      return view('posts.create');
+      $categories = \App\Category::all(); //passo direttamente anziché fare use
+
+      return view('posts.create', compact('categories'));
+    }
+
+    public function save(Request $request)
+    {
+      dd($request->all());
     }
 }
