@@ -20,4 +20,5 @@ Route::get('/admin/nuova-categoria', 'CategoryController@create')->name('create'
 Route::post('/admin/nuova-categoria', 'CategoryController@save')->name('save');
 
 //post route
-Route::post('/admin/posts', 'PostController@index')->name('postindex');
+Route::get('/admin/posts', 'PostController@index')->name('posts.index');
+Route::get('/admin/nuovo-post', 'PostController@create')->name('posts.create');

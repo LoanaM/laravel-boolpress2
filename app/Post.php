@@ -10,7 +10,7 @@ class Post extends Model
 
     public function categories()
     {
-      return $this->belongsToMany('App\category'); //qua aggiungere anche la tabella se non fosse mappata correttamente
-      
+      return $this->belongsToMany('App\Category'); //qua aggiungere anche la tabella se non fosse mappata correttamente
+
     }
 }
