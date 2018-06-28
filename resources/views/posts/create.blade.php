@@ -5,19 +5,17 @@
     {{ csrf_field() }}
 
     <div class="form-group">
-      <label for="categories">Categorie</label>
-      <select name="categories" multiple>
+      <label for="categories[]">Categorie</label>
+      <select name="categories[]" multiple>
         @foreach ($categories as $category)
-          <option value="{{$category->id}}">{{$category->id}} - {{$category->name}}</option>          
+          <option value="{{$category->id}}">{{$category->id}} - {{$category->name}}</option>
         @endforeach
-
       </select>
-
     </div>
 
     <div class="form-group">
-      <label for="name">Titolo</label>
-      <input type="text" name="name" class="form-control">
+      <label for="title">Titolo</label>
+      <input type="text" name="title" class="form-control">
     </div>
 
     <div class="form-group">

@@ -23,6 +23,21 @@ class PostController extends Controller
 
     public function save(Request $request)
     {
-      dd($request->all());
+      $request->validate([
+        'title' => 'required|min:4',
+        'content' => 'required|min:200',
+        'categories' => 'required'
+      ]);
+      $data = $request->all();
+
+      $data['slug'] = str_slug($data['title']);
+      $existingSlug = Post::where('slug' , $data['slug'])->first();
+      if ($existingSlug) return "Slug già esistente";
+
+      $post = New Post;
+      $post->fill($data);
+      $post->save();
+
+      dd($post->id);
     }
 }
