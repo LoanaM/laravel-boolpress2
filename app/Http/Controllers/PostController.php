@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 
 
 class PostController extends Controller
@@ -16,8 +17,8 @@ class PostController extends Controller
 
     public function create()
     {
-      $categories = \App\Category::all(); //passo direttamente anziché fare use
-
+      //$categories = \App\Category::all(); =>passo direttamente anziché fare use
+      $categories = Category::all();
       return view('posts.create', compact('categories'));
     }
 
@@ -37,7 +38,15 @@ class PostController extends Controller
       $post = New Post;
       $post->fill($data);
       $post->save();
+      //metodo con controllo
+      foreach ($data['categories'] as $category) {
+        $existingCategory = Category::find($categoryId);
+        if(!empty($existingCategory)){
+          $post->categories()->attach($categoryId);
+        }
+      }
+      //metodo senza check
+      // $post->categories()->sync($data['categories']);
 
-      dd($post->id);
     }
 }
