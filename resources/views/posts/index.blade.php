@@ -10,19 +10,19 @@
 
   <table class="table">
     <thead>
-      <tr>Nome</tr>
+      <tr>Nome  </tr>
       <tr>Slug</tr>
     </thead>
-    <tbody>
-      @foreach ($posts as $post)
-        <tr>
 
-        </tr>
-      @endforeach
-    </tbody>
+    @foreach ($posts as $post)
+      <p>
+        <tr>{{$post['title']}}&nbsp&nbsp</tr>
+        <tr>{{$post['slug']}}</tr>
+      </p>
+    @endforeach
+
   </table>
 
+
+
 @endsection
-
-
-index page
